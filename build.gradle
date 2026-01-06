@@ -1,8 +1,23 @@
+buildscript {
+    repositories {
+        mavenLocal()
+        maven {
+            name = 'Fabric'
+            url = 'https://maven.fabricmc.net/'
+        }
+        mavenCentral()
+    }
+    dependencies {
+        classpath 'net.fabricmc:fabric-loom:1.14.10'
+    }
+}
+
 plugins {
-    id 'fabric-loom' version '1.11-SNAPSHOT'
     id 'java-library'
     id 'maven-publish'
 }
+
+apply plugin: 'fabric-loom'
 
 base {
 	archivesName = project.archives_base_name
@@ -11,6 +26,7 @@ base {
 version = project.mod_version
 group = project.maven_group
 repositories {
+    mavenLocal()
     maven {
         name = 'TerraformersMC'
         url = 'https://maven.terraformersmc.com/'
